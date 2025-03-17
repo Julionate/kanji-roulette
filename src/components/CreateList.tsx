@@ -32,12 +32,14 @@ export const CreateList = () => {
       <div class="flex gap-4 **:transition-colors mb-4">
         <input
           type="text"
+          placeholder="Kanji"
           defaultValue={List.getItem(index).Kanji}
           onChange={(e) => List.editItem(index, "Kanji", e.currentTarget.value)}
           class="w-24 h-10 bg-slate-100 hover:bg-slate-200 focus:bg-slate-200 p-2 rounded-lg placeholder:font-medium"
         ></input>
         <input
           type="text"
+          placeholder="Reading"
           defaultValue={List.getItem(index).Reading}
           onChange={(e) =>
             List.editItem(index, "Reading", e.currentTarget.value)
