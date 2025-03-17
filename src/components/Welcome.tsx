@@ -66,7 +66,7 @@ export const Welcome = () => {
     <dialog
       ref={modal}
       open={isOpen.value}
-      class="bg-transparent inset-0 m-auto animate-fade-up"
+      class="bg-transparent inset-0 m-auto animate-fade-up backdrop-blur-lg p-2"
     >
       <div class="prose prose-headings:text-2xl prose-xl">
         <Pagination />
