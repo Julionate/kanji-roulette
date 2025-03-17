@@ -4,11 +4,11 @@ import { localStorageNotExists } from "./errorHandling";
 
 class KanjiList {
   private KanjiList: Signal<Kanji[]>;
+  readonly KanjiBase: Kanji;
 
   constructor() {
-    this.KanjiList = signal<Kanji[]>([
-      { Kanji: "日本語", Reading: "にほんご" },
-    ]);
+    this.KanjiBase = { Kanji: "", Reading: "" };
+    this.KanjiList = signal<Kanji[]>([this.KanjiBase]);
   }
 
   public getList = () => {
@@ -31,7 +31,7 @@ class KanjiList {
   };
 
   public createItem = () => {
-    this.KanjiList.value = [...List.getList(), { Kanji: "", Reading: "" }];
+    this.KanjiList.value = [...List.getList(), this.KanjiBase];
   };
 
   public editItem = (index: number, label: KanjiField, input: string) => {

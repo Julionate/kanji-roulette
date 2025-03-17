@@ -3,6 +3,7 @@ import { TrashIcon } from "../assets/TrashIcon";
 import { AddIcon } from "../assets/AddIcon";
 import { useRef } from "preact/hooks";
 import { useEffect } from "preact/hooks";
+import { route } from "../lib/Routing";
 
 export const CreateList = () => {
   const inputsContainer = useRef<HTMLDivElement>(null);
@@ -19,6 +20,11 @@ export const CreateList = () => {
         behavior: "smooth",
       });
     }, 50);
+  };
+
+  const handleSaveButton = () => {
+    List.saveList();
+    route.changeRoute("Roulette");
   };
 
   const InputKanji = ({ index }: { index: number }) => {
@@ -67,7 +73,7 @@ export const CreateList = () => {
           />
         </button>
         <button
-          onClick={() => List.saveList()}
+          onClick={handleSaveButton}
           class="max h-10 px-4 bg-slate-300 hover:bg-slate-200 rounded-lg cursor-pointer transition-colors"
         >
           Ready
